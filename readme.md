@@ -1,1 +1,1 @@
-![image-20230223173849882](C:/Users/hp/AppData/Roaming/Typora/typora-user-images/image-20230223173849882.png)
+![image-20230223173849882](image-20230223173849882.png)
