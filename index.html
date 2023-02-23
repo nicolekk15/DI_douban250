@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>豆瓣top250层次可视化</title>
+<script src="d3.v3.min.js"></script>
+<script type="text/javascript" src="echarts.min.js"></script>
+<script type='text/javascript' src="top250.json"></script>
+<script type='text/javascript' src="top250+.json"></script>	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Graph CSS -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- jQuery -->
+
+<!-- lined-icons -->
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/amcharts.js"></script>	
+<script src="js/serial.js"></script>	
+<script src="js/light.js"></script>	
+<script src="js/radar.js"></script>	
+
+<link href="css/fabochart.css" rel='stylesheet' type='text/css' />
+<!--clock init-->
+<script src="js/css3clock.js"></script>
+<!--Easy Pie Chart-->
+<style>
+	.demo
+	{
+		width: 950px;	
+		height: 280px;	
+		margin: 50px auto;	
+	}
+	.demo img
+	{
+		box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+		/*考虑浏览器兼容性*/
+		-moz-box-shadow:5px 5px 5px rgba(0,0,0,.5);
+		-webkit-box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+	}
+	.topp
+	{
+		font-size: 15px;
+		color: aliceblue;
+	}
+</style>
+<style type="text/css"></style>
+</head> 
+<body>
+   <div class="page-container">
+   <!--/content-inner-->
+	<div class="left-content"  style = "width:1100px;">
+	   <div class="inner-content">
+		<!-- header-starts -->
+			<div class="header-section" >
+						<!--menu-right-->
+						<div class="top_menu"  style = "width:100%;height:70px">
+							<!--/profile_details-->
+							<div style="height:20px"></div>
+								<div class="profile_details_left" style="width:450px;height:35px">
+									<p class = "topp" text-align>“电影发明后，人类的生命至少了延长了三倍” —— 《一 一》</p>
+							</div>
+							<div class="clearfix"></div>	
+							<!--//profile_details-->
+						</div>
+						<!--//menu-right-->
+					<div class="clearfix"></div>
+				</div>
+				<!-- //header-ends -->
+				<div class="outter-wp">
+					<!--custom-widgets-->
+						<div class="custom-widgets">
+							<!-- <div class = "row-thr" id = "FACE1" style="width:100%;height:300px"> -->
+								<div id = "FACE1" style="width:100%;height:270px">
+									<!-- <center><h1>豆瓣top250层次可视化</h1></center> -->
+									<div class = "demo">
+										<center><img src="face1.png" style="width:950px;height:280px" onclick="javascript:location.href='https://movie.douban.com/top250'"/></center>
+									</div>
+								</div>
+								<h5 class="page-header" style="margin-top: 20px"></h5> 
+							<!-- </div> -->
+							
+							<div class="row-one">
+								<div class="col-md-3 widget">
+									<div class="stats-left ">
+										<h5>top250</h5>
+											<h4> 旭日图</h4>
+									</div>															
+									<div class="clearfix"> </div>	
+								</div>
+								<div class="col-md-3 widget states-mdl">
+									<div class="stats-left">
+										<h5>top250</h5>
+											<h4>径向树图</h4>
+									</div>														
+									<div class="clearfix"> </div>	
+								</div>
+								<div class="col-md-3 widget states-thrd">
+									<div class="stats-left">
+										<h5>top250</h5>
+											<h4>垂直树图</h4>
+									</div>														
+									<div class="clearfix"> </div>	
+								</div>
+								<div class="col-md-3 widget states-last">
+									<div class="stats-left">
+										<h5>top250</h5>
+											<h4>时间堆积图</h4>
+									</div>												
+									<div class="clearfix"> </div>	
+								</div>	
+							</div>
+						</div>
+					<!--//custom-widgets-->
+					<div style="height:90px"></div>
+						<div class="charts">
+							<div class="chrt-inner">
+								<div id = "TREE">
+										<h5 class="page-header" style="margin-top: 20px"></h5> 	
+											<h3 class="sub-tittle">Vertical Tree </h3>
+											<div id="tabs-3" class="tabs">
+												<div class="graph">
+													<nav>
+														<ul>
+															<li><a href="#section-1" class="icon-shop"> <span>Century</span></a></li>
+															<!-- <li><a href="#section-2" class="icon-cup"><span>Country</span></a></li> -->
+															<!-- <li><a href="#section-3" class="icon-food"><span>Language</span></a></li> -->
+															
+														</ul>
+													</nav>
+													<div class="content tab">
+														<section id="section-1">
+															<div class="mediabox" id="chart12" style="width:100%;height:900px">
+																											
+															</div>
+															
+														<!-- </section>
+														<section id="section-2">
+															<div class="mediabox" id="chartv2" style="width:1189px;height:900px">
+																</div>									
+														</section> -->
+													</div>
+												</div>
+											</div>
+											<script src="js/cbpFWTabs.js"></script>
+											<script>
+												new CBPFWTabs( document.getElementById( 'tabs-3' ) );
+											</script>	
+													<script src="tree1.js"></script>
+													
+								</div>
+							</div>
+						</div>
+					<!--/sun-->
+					<div class="candile"> 
+						<div id = "SUN">
+							<h3 class="sub-tittle">Sun Chart</h3>						
+							<div id="tabs" class="tabs">
+								<div class="graph">
+									<nav>
+										<ul>
+											<li><a href="#section-1" class="icon-shop"><span>Century</span></a></li>
+											<li><a href="#section-2" class="icon-cup"><span>Visualmap</span></a></li>
+											
+										</ul>
+									</nav>
+									<div class="content tab">
+										<section id="section-1">
+											<div class="mediabox" id = "fig" style="width:100%;height:900px">
+												</div>
+											
+										</section>
+										<section id="section-2">
+											<div class="mediabox" id = "mapsun" style="width:1000px;height:900px">
+												</div>									
+										</section>
+										
+									</div><!-- /content -->
+								</div>
+							</div>
+							<script src="js/cbpFWTabs.js"></script>
+							<script>
+								new CBPFWTabs( document.getElementById( 'tabs' ) );
+							</script>	
+										<script src="sun.js"></script>
+										<script src="visualmap.js"></script>																										
+							</div>	
+						</div>
+						<!--/sun-->
+	
+					<div class="tree"> 
+						<div id = "RTREE">
+							<h2 class="tittle1">Radical Tree</h2>
+							<div id="tabs-2" class="tabs">
+								<div class="graph">
+									<nav>
+										<ul>
+											<li><a href="#section-1" class="icon-shop"> <span>Century</span></a></li>
+											<li><a href="#section-2" class="icon-cup"><span>Country</span></a></li>
+											<li><a href="#section-3" class="icon-food"><span>Language</span></a></li>
+											<li><a href="#section-4" class="icon-food"><span>Directer</span></a></li>
+										</ul>
+									</nav>
+									<div class="content tab">
+										<section id="section-1">
+											<div class="mediabox" id="chart-tree1" style="width:100%;height:900px">
+																							
+											</div>
+											
+										</section>
+										<section id="section-2">
+											<div class="mediabox" id="chart-tree2" style="width:1000px;height:900px">
+												
+												</div>									
+										</section>
+										<section id="section-3">
+											<div class="mediabox" id="chart-tree3" style="width:1000px;height:900px">
+											</div>									
+										</section>
+										<section id="section-4">
+											<form>
+												<select id="select1" onchange="test1()">
+												<option value="中国" selected="selected">中国</option>
+												<option value="美国">美国</option><option value="日本">日本</option><option value="英国">英国</option><option value="法国">法国</option><option value="德国">德国</option><option value="韩国">韩国</option><option value="意大利">意大利</option><option value="加拿大">加拿大</option><option value="澳大利亚">澳大利亚</option><option value="印度">印度</option><option value="瑞士">瑞士</option><option value="西班牙">西班牙</option><option value="新西兰">新西兰</option><option value="伊朗">伊朗</option><option value="南非">南非</option><option value="瑞典">瑞典</option><option value="巴西">巴西</option><option value="冰岛">冰岛</option><option value="黎巴嫩">黎巴嫩</option><option value="波兰">波兰</option><option value="丹麦">丹麦</option><option value="荷兰">荷兰</option><option value="奥地利">奥地利</option><option value="阿根廷">阿根廷</option><option value="爱尔兰">爱尔兰</option><option value="希腊">希腊</option>
+											</select>
+											</form>
+											<div class="mediabox" id="chart-tree4" style="width:1000px;height:900px">
+											</div>									
+										</section>
+									</div>
+								</div>
+							</div>
+							<script>
+								new CBPFWTabs( document.getElementById( 'tabs-2' ) );
+							</script>	
+										<script src="rtree1.js"></script>
+										<script src="rtree2.js"></script>
+										<script src="rtree3.js"></script>
+										<script src="rtree4.js"></script>
+							</div>				
+					</div>
+
+					
+					
+
+							<div class="chrt-stack">
+								<div id ="STACK">
+									<h5 class="page-header" style="margin-top: 20px"></h5> 	
+										<h3 class="sub-tittle">Stack Chart </h3>
+										<form>
+											
+											<select id="select0" onchange="test()">
+											<option value="剧情" selected="selected">剧情</option>
+											<option value="爱情">爱情</option><option value="喜剧">喜剧</option><option value="动画">动画</option><option value="犯罪">犯罪</option><option value="动作">动作</option><option value="历史">历史</option><option value="同性">同性</option><option value="灾难">灾难</option><option value="战争">战争</option><option value="科幻">科幻</option><option value="奇幻">奇幻</option><option value="古装">古装</option><option value="悬疑">悬疑</option><option value="家庭">家庭</option><option value="传记">传记</option><option value="冒险">冒险</option><option value="惊悚">惊悚</option><option value="歌舞">歌舞</option><option value="儿童">儿童</option><option value="武侠">武侠</option><option value="恐怖">恐怖</option><option value="西部">西部</option><option value="音乐">音乐</option><option value="纪录片">纪录片</option><option value="情色">情色</option><option value="运动">运动</option>
+										</select>
+										</form>
+									<div id="stacked-charts" style="width:100%;height:550%"></div>
+									<script src="stackedchart.js"></script>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="chrt-stack1">
+								<div id ="POST">
+									<h5 class="page-header" style="margin-top: 20px"></h5> 	
+										<h3 class="sub-tittle">Post Chart </h3>
+									
+									<div id="stacked-charts1" style="width:100%;height:550%"></div>
+									<script src="pictree.js"></script>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+
+							<div class="area">
+								<div class="clearfix"></div>
+							</div>
+							<div id = "timeline" class="area-charts">
+								<h5 class="page-header" style="margin-top: 20px"></h5> 
+									<h3 class="sub-tittle">Time line </h3>
+										<ul class="timeline">
+											<li>
+											<div class="timeline-badge info"><i class="fa fa-smile-o"></i></div>
+											<div class="timeline-panel">
+												<div class="timeline-heading">
+													<h4 class="timeline-title">数据爬取</h4>
+												</div>
+												<div class="timeline-body">
+													<p>余晗、李明洋</p>
+												</div>
+											</div>
+											</li>
+																
+											<li>
+												<div class="timeline-badge primary"><i class="fa fa-star-o"></i></div>
+													<div class="timeline-panel">
+														<div class="timeline-heading">
+															<h4 class="timeline-title">数据分析</h4>
+														</div>
+														<div class="timeline-body">
+															<p>李明洋、余晗、倪寻珂 </p>
+															</div>
+												 	</div>
+											</li>
+																
+											<li>
+												<div class="timeline-badge danger"><i class="fa fa-times-circle-o"></i></div>
+													<div class="timeline-panel">
+														<div class="timeline-heading">
+															<h4 class="timeline-title">前端网页制作</h4>
+														</div>
+														<div class="timeline-body">
+															<p>余晗、倪寻珂</p>
+														</div>
+													</div>
+											</li>
+																
+											<li>
+												<div class="timeline-badge success"><i class="fa fa-check-circle-o"></i></div>
+													<div class="timeline-panel">
+														<div class="timeline-heading">
+															<h4 class="timeline-title">数据可视化处理</h4>
+														</div>
+														<div class="timeline-body">
+															<p>倪寻珂、李明洋</p>
+														</div>
+													</div>
+											</li>
+										</ul>
+									<div class="clearfix"></div>		
+								</div>
+						
+				</div>
+			</div>
+		</div>
+	<!--//content-inner-->
+			<!--/sidebar-menu-->
+				<div class="sidebar-menu" style="width:184px;height:100%">
+					<header class="logo">
+					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Datavis</h1></span> 
+				  </a> 
+				</header>
+			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
+                <div class="menu">
+					<ul id="menu" >
+						<li><a href="#TREE"><i class="fa fa-sitemap"></i> <span>Vertical Tree</span></a></li>
+						<li><a href="#SUN"><i class="fa fa-arrows"></i> <span>Sun Chart</span></a></li>
+						<li><a href="#RTREE"><i class="fa fa-sun-o"></i> <span>Radical Tree</span></a></li>
+						<li><a href="#STACK"><i class="lnr lnr-chart-bars" ></i> <span>Stacked Chart</span></a></li>
+						<li><a href="#POST"><i class="material-icons" style="color:white">burst_mode</i> <span>Post Chart</span></a></li>
+						<li><a href="#timeline"><i class="fa fa-calendar"></i> <span>Time Line</span></a></li>
+						<li><a href="https://movie.douban.com/top250"><i class="fa fa-star" style='color:yellow'></i> <span>豆瓣TOP250传送门</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>		
+		</div>
+		<script>
+							var toggle = true;			
+							$(".sidebar-icon").click(function() {                
+							  if (toggle)
+							  {
+								$(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+								$("#menu span").css({"position":"absolute"});
+							  }
+							  else
+							  {
+								$(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+								setTimeout(function() {
+								  $("#menu span").css({"position":"relative"});
+								}, 150);
+							  }
+											
+											toggle = !toggle;
+										});
+							</script>
+<!--js -->
+<link rel="stylesheet" href="css/vroom.css">
+<script type="text/javascript" src="js/vroom.js"></script>
+<script type="text/javascript" src="js/TweenLite.min.js"></script>
+<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+   <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+<style>
+	* {touch-action: pan-y;}
+</style>
